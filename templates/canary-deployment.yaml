@@ -31,8 +31,8 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.stable.image.repository }}:{{ .Values.stable.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.stable.image.pullPolicy }}
+          image: "{{ .Values.canary.image.repository }}:{{ .Values.canary.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.canary.image.pullPolicy }}
           ports:
             - name: http
               containerPort: 3000

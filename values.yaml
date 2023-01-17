@@ -4,11 +4,20 @@
 
 replicaCount: 1
 
-image:
-  repository: nginx
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+stable:
+  image:
+    repository: surakshaniveus/ms-node01
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: "23"
+
+canary:
+  image:
+    repository: surakshaniveus/ms-node01
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+    tag: "22"
+
 
 imagePullSecrets: []
 nameOverride: ""
@@ -37,8 +46,8 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
-  port: 80
+  type:   LoadBalancer
+  port: 3000
 
 ingress:
   enabled: false
