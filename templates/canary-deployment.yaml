@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "istio-helm.fullname" . }}
+  name: {{ include "istio-helm.fullname" . }}canary
   labels:
     {{- include "istio-helm.labels" . | nindent 4 }}
 spec:
