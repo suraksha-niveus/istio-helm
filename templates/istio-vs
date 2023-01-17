@@ -24,14 +24,14 @@ spec:
   #   - {}
   - route:
     - destination:
-        host: {{ include "istio-helm.fullname" . }}
         port:
           number: 3000
+        host: {{ include "istio-helm.fullname" . }}
         subset: v1
       weight: 50
     - destination:
-        host: {{ include "istio-helm.fullname" . }}
         port:
           number: 3000
+        host: {{ include "istio-helm.fullname" . }}
         subset: v2
       weight: 50

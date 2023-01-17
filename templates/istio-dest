@@ -1,9 +1,9 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: istio-helm-dest
+  name: {{ include "istio-helm.fullname" . }}
 spec:
-  host: istio-helm
+  host: {{ include "istio-helm.fullname" . }}
   subsets:
   - name: v1
     labels:
