@@ -1,9 +1,12 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-  name: istio-helm
+  name: istio-helm-dest
 spec:
   host: istio-helm
+  trafficPolicy:
+    loadBalancer:
+      simple: RANDOM
   subsets:
   - name: v1
     labels:
@@ -11,3 +14,27 @@ spec:
   - name: v2
     labels:
       version: v2
+    trafficPolicy:
+      loadBalancer:
+        simple: ROUND_ROBIN
+
+
+# apiVersion: networking.istio.io/v1alpha3
+# kind: DestinationRule
+# metadata:
+#   name: springcicddemo-destination-rule
+# spec:
+#   host: springcicddemo
+#   trafficPolicy:
+#     loadBalancer:
+#       simple: RANDOM
+#   subsets:
+#   - name: v1
+#     labels:
+#       version: v1
+#   - name: v2
+#     labels:
+#       version: v2
+#     trafficPolicy:
+#       loadBalancer:
+#         simple: ROUND_ROBIN

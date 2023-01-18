@@ -9,20 +9,20 @@ spec:
   gateways:
   - istio-helm-gateway
   http:
-  # - match:
-  #   - headers:
-  #       canary:
-  #         exact: "canary-tester"
-  #   route:
-  #   - destination:
-  #       host: istio-helm
-  #       subset: v2
-  #       port:
-  #         number: 3000
-  #     weight: 100
-  # - match:
-  #   - {}
-  - route:
+  - match:
+    - headers:
+        canary:
+          exact: "canary-tester"
+    route:
+    - destination:
+        host: istio-helm
+        subset: v2
+        port:
+          number: 3000
+      weight: 0
+  - match:
+    - {}
+    route:
     - destination:
         port:
           number: 3000
