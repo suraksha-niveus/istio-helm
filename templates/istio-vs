@@ -26,12 +26,12 @@ spec:
     - destination:
         port:
           number: 3000
-        host: {{ include "istio-helm.fullname" . }}
+        host: istio-helm
         subset: v1
       weight: 50
     - destination:
         port:
           number: 3000
-        host: {{ include "istio-helm.fullname" . }}
+        host: istio-helm
         subset: v2
       weight: 50
